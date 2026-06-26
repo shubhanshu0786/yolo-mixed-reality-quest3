@@ -1,0 +1,20 @@
+# Python
+__pycache__/
+*.pyc
+*.pyo
+.env
+.venv/
+venv/
+
+# YOLO model weights (large binary — download via Ultralytics)
+*.pt
+
+# Debug output frames and test media
+debug_frame_*.jpg
+debug_webcam_*.jpg
+result_test.jpg
+test.jpg
+test.mp4
+
+# Unity subfolder (full Unity project lives in D:\Unity\AR_Project)
+unity/

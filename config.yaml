@@ -1,0 +1,31 @@
+model:
+  # Options: yolo11n.pt (fastest), yolo11s.pt, yolo11m.pt, yolo11l.pt, yolo11x.pt (most accurate)
+  # Or YOLOv8: yolov8n.pt, yolov8s.pt, etc.
+  # Models auto-download on first run from ultralytics
+  path: "yolo11n.pt"
+  confidence: 0.3
+  iou_threshold: 0.45
+  # "cpu" | "0" for first GPU | "0,1" for multi-GPU
+  device: "cpu"
+  # Limit to specific classes (null = all classes)
+  # Example: [0, 1, 2] for person, bicycle, car only
+  # Full COCO class list in detector.py
+  filter_classes: null
+  # Max detections per frame
+  max_detections: 100
+
+server:
+  host: "0.0.0.0"
+  port: 8765
+  # "unity"  — Unity sends JPEG frames (original mode)
+  # "webcam" — Server captures from PC webcam, pushes detections to Quest
+  source: "unity"
+  # Webcam device index (0 = default/first camera)
+  webcam_index: 0
+  webcam_width: 640
+  webcam_height: 480
+  webcam_fps: 10
+  # Send annotated frame back to Unity (increases bandwidth, useful for debug)
+  return_annotated_frame: true
+  # JPEG quality for returned annotated frame (1-100)
+  annotated_frame_quality: 60
