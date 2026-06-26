@@ -85,7 +85,7 @@ yolo-mixed-reality-quest3/
 
 ```bash
 # Clone repo
-git clone https://github.com/YOUR_USERNAME/yolo-mixed-reality-quest3.git
+git clone https://github.com/shubhanshu0786/yolo-mixed-reality-quest3.git
 cd yolo-mixed-reality-quest3
 
 # Install dependencies
@@ -102,13 +102,14 @@ The server listens on `ws://0.0.0.0:8765` by default.
 
 ### 2. Unity (Quest 3)
 
-1. Open `D:\Unity\AR_Project` in Unity 2022.3
-2. Open scene `Assets/Scenes/demo.unity`
+1. Open your Unity 2022.3 project
+2. Copy the scripts from `unity-scripts/` into your `Assets` folder
 3. Select the **YOLO Manager** GameObject → set `Server Url` to your PC's local IP:
    ```
    ws://192.168.X.X:8765
    ```
-4. Set `Capture Mode` to **Passthrough**
+   *(find your PC IP by running `ipconfig` in a terminal)*
+4. Assign a `PassthroughCameraAccess` component and set `Capture Mode` to **Passthrough**
 5. Build → Android → install APK on Quest 3
 
 ### 3. Grant Camera Permission (one-time)
@@ -117,13 +118,10 @@ The headset camera permission is not surfaced as an OS dialog on first launch.
 Grant it manually via ADB after installing the APK:
 
 ```bash
-adb shell pm grant com.ari.AR horizonos.permission.HEADSET_CAMERA
+adb shell pm grant <your.package.name> horizonos.permission.HEADSET_CAMERA
 ```
 
-Find ADB at:
-```
-C:\Program Files\Unity\Hub\Editor\2022.3.62f3\Editor\Data\PlaybackEngines\AndroidPlayer\SDK\platform-tools\adb.exe
-```
+ADB is included in the Android SDK bundled with Unity, or install it via [Android Studio](https://developer.android.com/studio).
 
 ---
 
